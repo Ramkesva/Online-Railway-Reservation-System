@@ -1,0 +1,47 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    User DashBoard
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <img class="avatar mat-elevation-z8" src="https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png">
+
+        <h4 class="user"><b>User</b></h4>
+        
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>home</mat-icon>
+            <span routerLink="/home"> Home</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>account_circle</mat-icon>
+            <span> Profile</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>shopping_cart</mat-icon>
+            <span> My Bookings</span>
+        </button>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>contact_support</mat-icon>
+            <span> Help</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            Main content here!
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

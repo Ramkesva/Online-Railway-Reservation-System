@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<app-navbaruser></app-navbaruser>
+
+<body style="background-color: rgb(12, 44, 28); height: 750px; margin-top: -20px;">
+    <div style="text-align: center">
+        <h3>{{message}}</h3>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12" style="margin-top: 20px;">
+                <h2 class = "mt-3 mb-3"><b style="border-color: cyan; color:rgb(158, 51, 158);">Book Your Tickets Here:</b></h2>
+                <form>
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label style="color:indigo;" for="name">Passenger Name :</label>
+                            <input class="form-control" type="text" [(ngModel)]="book.name" name="name" id="name" required
+                                placeholder="Enter Passenger Name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phnnumber">Contact :</label>
+                            <input class="form-control" type="text" [(ngModel)]="book.phnnumber" name="phnnumber" id="phnnumber" required
+                                placeholder="Enter Mobile Number" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail :</label>
+                            <input class="form-control" type="text" [(ngModel)]="book.email" name="email" id="email" required
+                                placeholder="Enter E-mail Address" />
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <label for="trainNo">Train No :</label>
+                            <input class="form-control" type="text" [(ngModel)]="train.trainNo" name="trainNo" id="trainNo" required
+                                placeholder="Enter Train No" />
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="trainName">Train Name :</label>
+                            <input required type="text" [(ngModel)]="train.trainName" name="trainName" id="trainName"
+                                class="form-control phone" maxlength="28" placeholder="Enter Train Name" />
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="trainFrom">Source :</label>
+                            <input class="form-control" type="text" [(ngModel)]="train.trainFrom" name="trainFrom" id="txt"
+                                placeholder="Enter Source" required />
+                            <div id="errLast"></div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="trainTo">Destination :</label>
+                            <input class="form-control" required type="text" [(ngModel)]="train.trainTo" name="trainTo"
+                                id="trainTo" placeholder="Enter Destination" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date :</label>
+                            <input class="form-control" required type="date" [(ngModel)]="book.date" name="date"
+                                id="date" placeholder="Enter Destination" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="totalseats">No.of.Seats :</label>
+                            <input class="form-control" required type="text" [(ngModel)]="book.totalseats" name="totalseats"
+                                id="totalseats" placeholder="No.of Seats" />
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label for="fare">Fare</label>
+                            <input class="form-control" required type="text" [(ngModel)]="train.fare" name="fare"
+                                id="fare" placeholder="Enter Fare" />
+                        </div> -->
+
+                        <!-- <div class="form-group">
+                            <label for="time">Time</label>
+                            <input class="form-control" required type="text" [(ngModel)]="train.time" name="time"
+                                id="time" placeholder="Enter Time" />
+                        </div> -->
+                        <br>
+                        <div class="form-group">
+                            <input class="btn btn-success" type="submit" name="submit_reg" value="Book Ticket" (click)="bookTicket()">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+    
+        </div>
+    </div>
+    </body>
+    </html>

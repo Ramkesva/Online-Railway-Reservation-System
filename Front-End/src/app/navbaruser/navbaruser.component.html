@@ -3,24 +3,9 @@
     <div class="spacer"></div>
       <a mat-button routerLink="/home">HOME</a>
 
-      <a mat-button routerLink="/bookticket">RESERVE TICKET</a>
-      <a mat-button  routerLink="/cancelticket">CANCEL TICKET</a>
+      <a mat-button routerLink="/availabletrains">RESERVE TICKET</a>
+      <a mat-button  routerLink="/canceltickets">CANCEL TICKET</a>
         
       <a mat-button routerLink="/bookingdetails">BOOKING INFO</a>
-      <a mat-raised-button color routerLink="/userLogin">LOG-OUT</a>
+      <a mat-raised-button color (click)= logout()>LOG-OUT</a>
 </mat-toolbar>
-
-<!-- <mat-toolbar class="nav-bar">
-    <span><mat-icon>eco</mat-icon> Green Car Wash</span>
-    <div class="spacer"></div>
-      <a mat-button routerLink="home">Home</a>
-
-      <a mat-button>Menu</a>
-      <a mat-button routerLink="about">About </a>
-        
-      <a mat-button routerLink="customer-dashboard">Customer</a>
-      <a mat-button>Login</a>
-      <a mat-raised-button color="primary" routerLink="register-now">Register-Now</a>
-
-    
-</mat-toolbar> -->

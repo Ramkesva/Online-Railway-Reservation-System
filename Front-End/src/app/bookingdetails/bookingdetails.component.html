@@ -1,1 +1,49 @@
-<p>bookingdetails works!</p>
+<!DOCTYPE html>
+<html>
+    <app-navbaruser></app-navbaruser>
+  <body style="background-color: rgb(12, 44, 28); height: 540px; margin-top: -20px;">
+<div class="container">
+  <h2 style="text-align: center; font:bold ; background-color: rgb(21, 55, 83); color: coral; margin-top: 20px;">List of Your Bookings</h2>
+ <div style="margin-left: -70px;">
+  <table class="table table-striped" style="background-color: rgb(127, 173, 150);">
+      <thead style="color: darkolivegreen; background-color: lightblue;">
+          <tr>
+              <th>PNR-ID</th>
+              <!-- <th>Username</th> -->
+              <th>Name</th>
+              <th>Contact</th>
+              <th>E-mail</th>
+              <th>Train No</th>
+              <th>Train Name</th>
+              <th>Train From</th>
+              <th>Train To</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Fare</th> 
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let bk of bookings">
+            <td>{{bk.pnrId}}</td>
+            <!-- <td>{{bk.userId}}</td> -->
+            <td>{{bk.name}}</td>
+            <td>{{bk.phnnumber}}</td>
+            <td>{{bk.email}}</td>
+            <td>{{bk.trainNo}}</td>
+            <td>{{bk.trainName}}</td>
+            <td>{{bk.trainFrom}}</td>
+            <td>{{bk.trainTo}}</td>
+            <td>{{bk.date}}</td>
+            <td>{{bk.time}}</td>
+            <td>{{bk.fare}}</td>
+        <td>
+          <button (click)="cancelTicket(bk.pnrId)" class="btn btn-info">Cancel Ticket</button>
+        </tr>
+      </tbody>
+  </table>
+  </div>
+  </div>
+
+</body>
+  </html>

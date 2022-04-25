@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TraindataService } from '../traindata.service';
-//import { TestObject } from 'protractor/built/driverProviders';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-managetrains',
@@ -15,21 +15,38 @@ export class ManagetrainsComponent implements OnInit {
   constructor(private service: TraindataService, private router: Router) { }
 
   ngOnInit() {
-    let response = this.service.getTrains();
+    let response = this.service.getTrainsforAdmin();
     response.subscribe((data:any) => this.trains = data);
   }
 
-  updateTrain(trainNo:number){
-    console.log(trainNo);
-    this.router.navigate(["updatetrains",trainNo]);
-    
-  }
+  updateTrain(trainNo:any){
+      console.log(trainNo);
+      this.router.navigate(["updatetrains",trainNo]);
+    }
 
-  public deleteTrains(trainNo : number){
-    let response = this.service.deleteTrain(trainNo);
+
+  public deleteTrains(trainNo : any){
+    Swal.fire({
+      title:'Are you Sure?',
+      text:'',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonText:'Yes',
+      cancelButtonText:'Cancel'
+
+    }).then((result) => {
+      if(result.value) {
+        let response = this.service.deleteTrain(trainNo);
     response.subscribe((data:any) => this.trains=data);
-      (<any>this.router).navigate(["/managetrains"])  
-        alert("Train deleted Successfully")
+      (<any>this.router).navigate(["/managetrains"]);  
+        alert("Train deleted Successfully");
+      }
+    })
+    //public deleteTrains(trainNo : any){
+    // let response = this.service.deleteTrain(trainNo);
+    // response.subscribe((data:any) => this.trains=data);
+    //   (<any>this.router).navigate(["/managetrains"])  
+    //     alert("Train deleted Successfully")
   }
 
 }

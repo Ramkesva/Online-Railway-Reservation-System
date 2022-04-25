@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -13,6 +13,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { AddtrainsComponent } from './addtrains/addtrains.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { ManagetrainsComponent } from './managetrains/managetrains.component';
@@ -27,6 +28,12 @@ import { BookingdetailsComponent } from './bookingdetails/bookingdetails.compone
 import { NavbaradminComponent } from './navbaradmin/navbaradmin.component';
 import { NavbaruserComponent } from './navbaruser/navbaruser.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { AvailabletrainsComponent } from './availabletrains/availabletrains.component';
+import { BookticketsComponent } from './booktickets/booktickets.component';
+import { CancelticketsComponent } from './canceltickets/canceltickets.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthHttpInterceptorService } from './auth-http-interceptor.service';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +53,12 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
     BookingdetailsComponent,
     NavbaradminComponent,
     NavbaruserComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    AvailabletrainsComponent,
+    BookticketsComponent,
+    CancelticketsComponent,
+    LogoutComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +73,10 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
     MatMenuModule,
     MatSidenavModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

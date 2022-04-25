@@ -15,7 +15,7 @@ export class SearchtrainsComponent implements OnInit {
   constructor(private service: TraindataService) { }
 
   ngOnInit(): void {
-    this.trains=this.service.getTrains().subscribe((data:any)=>this.trains=data);
+    this.trains=this.service.getTrainsall().subscribe((data:any)=>this.trains=data);
    }
  
    public searchFrom() {

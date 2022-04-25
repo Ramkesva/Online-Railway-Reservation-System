@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Booking } from './booking';
+import { Train } from './train';
 
 // export class Trains {
 //   constructor(
@@ -19,18 +22,57 @@ import { Injectable } from '@angular/core';
 })
 export class TraindataService {
 
+  private baseUrl = "http://localhost:8089/user/viewtrain";
+  private baseUrl1 = "http://localhost:8088/admin/updatetrain";
+
   constructor(private http:HttpClient) { }
 
   public getTrains() {
+    return this.http.get("http://localhost:8089/user/viewalltrains");
+  }
+
+  getTrainsall() {
     return this.http.get("http://localhost:8087/train/viewalltrains");
   }
 
+  getTrainsforAdmin() {
+    return this.http.get("http://localhost:8088/admin/viewalltrains");
+  }
+  
+public getBookings() {
+  return this.http.get("http://localhost:8089/user/getallorders");
+}
+  // public getBookings(username: string | null) {
+  //   console.log("---------"+username);
+  //   return this.http.get("http://localhost:8089/user/getorder/",+username);
+  // }
+
   public deleteTrain(trainNo:any){
-    return this.http.delete("http://localhost:8087/train/deletetrain/"+trainNo);
+    return this.http.delete("http://localhost:8088/admin/deletetrain/"+trainNo);
   }
 
-  public addNew(train:any) {
-    return this.http.post("http://localhost:8087/train/addtrain", train, { responseType: "text" as "json" });
+  // public addNew(train:any) {
+  //   return this.http.post("http://localhost:8087/train/addtrain", train, { responseType: "text" as "json" });
+  // }
+
+  addNewTrain(train: Train): Observable<Object> {
+    return this.http.post("http://localhost:8088/admin/addtrain", train);
+  }
+
+  getTrainByno(trainNo:String): Observable<Train> {
+    return this.http.get<Train>("http://localhost:8088/admin/viewtrainbyno/"+trainNo);
+  }
+
+  getTrainByNo(trainNo:String): Observable<Train> {
+    return this.http.get<Train>(`${this.baseUrl}/${trainNo}`);
+  }
+
+  updateTrains(trainNo:String, train: Train): Observable<Object> {
+    return this.http.put(`${this.baseUrl1}/${trainNo}`, train);
+  }
+
+  bookNow(book: Booking): Observable<Object> {
+    return this.http.post("http://localhost:8089/user/bookticket", book);
   }
 
   getTrainsbyfrom(trainFrom:any) {

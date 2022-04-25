@@ -17,7 +17,7 @@ export class RegisterpassengerService {
 
   constructor(private http: HttpClient) {
   }
-  saveResto(data: any)
+  regUser(data: any)
    {
       return this.http.post<userlogin[]>('http://localhost:8089/user/register',data)
    }

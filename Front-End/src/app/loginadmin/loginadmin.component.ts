@@ -21,25 +21,30 @@ export class LoginadminComponent implements OnInit {
   
     ngOnInit(): void {
     }
-    validate()
-    {
-      //console.warn(this.addResto.value)
-      this.httpClientService.saveResto(this.adminlog.value).subscribe((result: any)=>{
-      console.warn("result",result)    
-        this.x=result
-        console.warn(this.x.jwt)
-        if(this.x.jwt=="no"){
+    // validate()
+    // {
+    //   //console.warn(this.addResto.value)
+    //   this.httpClientService.saveResto(this.adminlog.value).subscribe((result: any)=>{
+    //   console.warn("result",result)    
+    //     this.x=result
+    //     console.warn(this.x.jwt)
+    //     if(this.x.jwt=="no"){
           
-          (<any>this.router).navigate(["/AdminLogin"])  
-          alert("Invalid Credentials");
-        }
-        else
-        {
+    //       (<any>this.router).navigate(["/AdminLogin"])  
+    //       alert("Invalid Credentials");
+    //     }
+    //     else
+    //     {
           
-          (<any>this.router).navigate(["/adminhome"]) 
-          alert("Welcome!");
+    //       (<any>this.router).navigate(["/adminhome"]) 
+    //       alert("Welcome!");
                 
-        }
-    })
+    //     }
+    // })
+    // }
+
+    validate() {
+      this.httpClientService.authent(this.adminlog.value.username, this.adminlog.value.password);
     }
+
   }

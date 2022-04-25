@@ -16,18 +16,32 @@
       </button>
   
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="float: right; margin-right: 40px;">
+        <ul class="navbar-nav mr-auto" style="float: right; margin-right: 40px; padding-top: 10px;">
   
           <li class="nav-item" style="padding-right:2em">
-            <a class="nav-link" routerLink="/managetrains"><h3 style="color:darkmagenta;">Manage Trains</h3></a>
+            <a mat-button class="nav-link" routerLink="/managetrains"><h3 style="color:darkmagenta;">Manage Trains</h3></a>
           </li>
   
           <li class="nav-item">
-            <a class="nav-link" routerLink="/addtrains"><h3 style="color:darkmagenta;">Add Trains</h3></a>
+            <a mat-button class="nav-item" routerLink="/addtrains"><h3 style="color:darkmagenta;">Add Trains</h3></a>
           </li>
-  
+          
+          <a mat-raised-button color style="height: 40px; margin-top: 10px;" (click)="logout()">LOG-OUT</a>
+        
         </ul>
       </div>
     </nav>
    
   </div>
+
+
+  <!-- <mat-toolbar class="nav-bar">
+    <span><mat-icon>eco</mat-icon><a mat-button routerLink="/adminhome">ADMIN SERVICE</a></span>
+    <div class="spacer"></div>
+      <a mat-button routerLink="/home">HOME</a>
+
+      <a mat-button routerLink="/managetrains">Manage Trains</a>
+      <a mat-button  routerLink="/addtrains">Add Trains</a>
+        
+      <a mat-raised-button color routerLink="/logout">LOG-OUT</a>
+</mat-toolbar> -->

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterpassengerService } from '../registerpassenger.service';
 
@@ -12,21 +12,23 @@ export class RegisteruserComponent implements OnInit {
 
   adminlog=new FormGroup(
     {
+        id: new FormControl('',Validators.required),
         username: new FormControl('', Validators.required),
-        password: new FormControl('', Validators.required),
+        password: new FormControl('', Validators.required)
         
     })
-    constructor(private httpClientService: RegisterpassengerService, private router:Router) { }
+    constructor(private httpClientService: RegisterpassengerService, private router:Router, private fb:FormBuilder) { }
   
     ngOnInit(): void {
     }
     validate()
     {
       //console.warn(this.addResto.value)
-      this.httpClientService.saveResto(this.adminlog.value).subscribe((result: any)=>{
+      this.httpClientService.regUser(this.adminlog.value).subscribe((result: any)=>{
       console.warn("result",result);
+      alert("Registration Successful");
       (<any>this.router).navigate(["/userLogin"])  
-        alert("register successful")
+        
     })
     }
 

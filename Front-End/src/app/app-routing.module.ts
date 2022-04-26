@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddtrainsComponent } from './addtrains/addtrains.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
@@ -20,6 +20,7 @@ import { UpdatetrainsComponent } from './updatetrains/updatetrains.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { UserhomeComponent } from './userhome/userhome.component';
+import { UserticketinfoComponent } from './userticketinfo/userticketinfo.component';
 
 const routes: Routes = [{ path: '', redirectTo:'home', pathMatch: 'full'},
                         { path:'home', component:HomeComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [{ path: '', redirectTo:'home', pathMatch: 'full'},
                         // { path:'navbaruser', component:NavbaruserComponent, canActivate:[AuthGuardService]},
                         { path:'bookingdetails', component:BookingdetailsComponent, canActivate:[AuthGuardService]},
                         { path:'logout', component:LogoutComponent, canActivate:[AuthGuardService]},
+                        { path:'userticketinfo', component:UserticketinfoComponent},
                         { path:'trainsdetails', component:UserDetailsComponent},
                         { path:'**', component: PageNotFoundComponent}
 ];

@@ -34,6 +34,11 @@ import { CancelticketsComponent } from './canceltickets/canceltickets.component'
 import { LogoutComponent } from './logout/logout.component';
 import { AuthHttpInterceptorService } from './auth-http-interceptor.service';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { UserticketinfoComponent } from './userticketinfo/userticketinfo.component';
+import {CardModule} from 'primeng/card';
+import {TableModule} from 'primeng/table';
+import {PanelModule} from 'primeng/panel';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,8 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     BookticketsComponent,
     CancelticketsComponent,
     LogoutComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    UserticketinfoComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,11 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    CardModule,
+    TableModule,
+    PanelModule,
+    ButtonModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]

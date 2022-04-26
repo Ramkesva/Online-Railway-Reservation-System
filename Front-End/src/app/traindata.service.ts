@@ -32,7 +32,7 @@ export class TraindataService {
   }
 
   getTrainsall() {
-    return this.http.get("http://localhost:8087/train/viewalltrains");
+    return this.http.get("http://localhost:8150/train/viewalltrains");
   }
 
   getTrainsforAdmin() {
@@ -40,7 +40,7 @@ export class TraindataService {
   }
   
 public getBookings() {
-  return this.http.get("http://localhost:8089/user/getallorders");
+  return this.http.get("http://localhost:8150/user/getallorders");
 }
   // public getBookings(username: string | null) {
   //   console.log("---------"+username);

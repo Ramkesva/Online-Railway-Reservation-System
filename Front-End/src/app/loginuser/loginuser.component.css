@@ -15,7 +15,7 @@ ul {
     padding: 0px;
     width: 250px;
     background-color: #61d1f3;
-    height: 416px;
+    height: 520px;
     margin-top: -5px;
   }
   
@@ -28,6 +28,7 @@ ul {
 
   .bg{
     background-color: rgb(92, 104, 156);
+    height : 698px;
 }
   
   li a.active {

@@ -10,12 +10,23 @@ h1{
     margin-bottom: auto;
 }
 
-.container{
+/* .container{
     background-color:ivory;
-}
+} */
 
 h2 {
     text-align: center;
     color:darkblue;
     word-spacing: 8px;
 }
+
+.mt-5 {
+        margin-top: 0rem !important;
+    }
+
+:host ::ng-deep 
+    .p-card .p-card-body {
+        padding: 1.25rem;
+        background-color: darkcyan;
+        margin-top: -5px;
+    }

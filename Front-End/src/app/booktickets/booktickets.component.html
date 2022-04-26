@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-12 col-sm-12" style="margin-top: 20px;">
                 <h2 class = "mt-3 mb-3"><b style="border-color: cyan; color:rgb(158, 51, 158);">Book Your Tickets Here:</b></h2>
-                <form #bookForm="ngForm">
+                <form #bookForm="ngForm" action="https://razorpay.com/payment-links/?utm_adgroup=brandsearch_pl&utm_gclid=Cj0KCQiAt8WOBhDbARIsANQLp945uCIOq0m1iLuf8NdfeU3qbgOLntbP8fFIMSYV0MEUK1eM2_VFSd4aAgtJEALw_wcB&utm_source=google&utm_medium=cpc&utm_campaign=brandsearch_generic&utm_term=razorpay%20payment%20link&hsa_kw=razorpay%20payment%20link&hsa_net=adwords&hsa_grp=127457516550&hsa_cam=13512997336&hsa_acc=9786800965&hsa_tgt=aud-368450393986:kwd-657795160756&hsa_ver=3&hsa_ad=527529476109&hsa_mt=p&hsa_src=g&gclid=Cj0KCQiAt8WOBhDbARIsANQLp945uCIOq0m1iLuf8NdfeU3qbgOLntbP8fFIMSYV0MEUK1eM2_VFSd4aAgtJEALw_wcB">
                     <fieldset>
 
                         <div class="form-group">
@@ -23,19 +23,24 @@
 
                         <div class="form-group">
                             <label for="phnnumber">Contact* :</label>
-                            <input #phnnumber="ngModel" pattern="^\d{10}$" required [class.is-invalid]="phnnumber.invalid && phnnumber.touched" class="form-control" type="tel" [(ngModel)]="book.phnnumber" name="phnnumber" id="phnnumber" required
+                            <input #phnnumber="ngModel" pattern="^((\\+91-?)|0)?[0-9]{10}$" required [class.is-invalid]="phnnumber.invalid && phnnumber.touched" class="form-control" type="tel" [(ngModel)]="book.phnnumber" name="phnnumber" id="phnnumber" required
                                 placeholder="Enter Mobile Number" />
 
                                 <div *ngIf="phnnumber.errors && (phnnumber.valid || phnnumber.touched)">
                                     <small class="text-danger" *ngIf="phnnumber.errors['required']">*Phone no. is required</small>
-                                    <small class="text-danger" *ngIf="phnnumber.errors['pattern']">*Phone no. must contain 10 digits</small>
+                                    <small class="text-danger" *ngIf="phnnumber.errors['pattern']">*Phone no. must contain numbers with 10 digits only</small>
                                   </div>
                         </div>
-
+<!--pattern="^[0-9]*$" "^\d{10}$"-->
                         <div class="form-group">
-                            <label for="email">E-mail :</label>
-                            <input class="form-control" type="text" [(ngModel)]="book.email" name="email" id="email" required
+                            <label for="email">E-mail* :</label>
+                            <input #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required [class.is-invalid]="email.invalid && email.touched" class="form-control" type="text" [(ngModel)]="book.email" name="email" id="email" required
                                 placeholder="Enter E-mail Address" />
+
+                                <div *ngIf="email.errors && (email.valid || email.touched)">
+                                    <small class="text-danger" *ngIf="email.errors['required']">*E-mail is required</small>
+                                    <small class="text-danger" *ngIf="email.errors['pattern']">*E-mail must include @,.extension</small>
+                                  </div>
                         </div>
     
     

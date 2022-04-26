@@ -51,28 +51,19 @@ export class BookticketsComponent implements OnInit {
   }
 
   bookTicket() {
-    console.log(this.book);
-    console.log(this.train);
-    let book1=this.book;
-    let train1=this.train;
-    // $.extend( true, object1, object2 );
-    // let combined = { …book1, …train1 }; 
-    // this.book1 = this.book1.concat(this.train1);
-    let book2 = Object.assign(book1, train1)
-    console.log((book2));
+    // console.log(this.book);
+    // console.log(this.train);
     
-    
-    //sessionStorage.setItem('UserId',userData.username);
-    //this.service.updateTrains(this.trainNo, this.train).subscribe( data => {
-      this.service.bookNow(this.book).subscribe( data => {
+     let book1=this.book;
+     let train1=this.train;
+     let book2 = Object.assign(book1, train1)
+     console.log((book2));
+      this.service.bookNow(book2).subscribe( data => {
         console.log(data);
-        // this.bookdata=data;
-        // this.bookdata.trainNo=this.train.trainNo;
-        // console.log(this.bookdata.trainNo);
       
     })
     alert("Ticket Booking Successful");
-    this.router.navigate(['/bookingdetails']);
+    this.router.navigate(['/userticketinfo']);
     
   
   }

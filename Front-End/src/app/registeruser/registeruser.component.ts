@@ -15,7 +15,6 @@ export class RegisteruserComponent implements OnInit {
         id: new FormControl('',Validators.required),
         username: new FormControl('', Validators.required),
         password: new FormControl('', Validators.required)
-        
     })
     constructor(private httpClientService: RegisterpassengerService, private router:Router, private fb:FormBuilder) { }
   
@@ -26,9 +25,14 @@ export class RegisteruserComponent implements OnInit {
       //console.warn(this.addResto.value)
       this.httpClientService.regUser(this.adminlog.value).subscribe((result: any)=>{
       console.warn("result",result);
+      if(result.success==0) {
+        alert("Username already Existed, Try different one");
+        (<any>this.router).navigate(["/userreg"]);
+      }
+      else {
       alert("Registration Successful");
-      (<any>this.router).navigate(["/userLogin"])  
-        
+      (<any>this.router).navigate(["/userLogin"]); 
+      }
     })
     }
 

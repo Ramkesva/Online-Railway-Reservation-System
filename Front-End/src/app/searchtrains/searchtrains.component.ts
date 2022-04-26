@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TraindataService } from '../traindata.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class SearchtrainsComponent implements OnInit {
   trainFrom: any;
   trainTo: any;
 
-  constructor(private service: TraindataService) { }
+  constructor(private service: TraindataService, private router:Router) { }
 
   ngOnInit(): void {
     this.trains=this.service.getTrainsall().subscribe((data:any)=>this.trains=data);
@@ -38,4 +39,9 @@ export class SearchtrainsComponent implements OnInit {
 
    }
 
+
+   backNavigation()
+  {
+    this.router.navigateByUrl("/home")
+  }
 }
